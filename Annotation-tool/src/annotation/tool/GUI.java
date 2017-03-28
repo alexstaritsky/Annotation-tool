@@ -25,21 +25,331 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        bestandnaam = new javax.swing.JTextField();
+        zoek = new javax.swing.JButton();
+        Open = new javax.swing.JButton();
+        optiesdb = new javax.swing.JComboBox();
+        kiesdb = new javax.swing.JButton();
+        orfbutton = new javax.swing.JButton();
+        visualisatie = new javax.swing.JPanel();
+        BLASTparameters = new javax.swing.JLabel();
+        blastbutton = new javax.swing.JButton();
+        typeblast = new javax.swing.JLabel();
+        typeblastcombo = new javax.swing.JComboBox();
+        algoritme = new javax.swing.JLabel();
+        algoritmecombo = new javax.swing.JComboBox();
+        low_complexity = new javax.swing.JCheckBox();
+        matrixcombo = new javax.swing.JComboBox();
+        matrix = new javax.swing.JLabel();
+        mask_lookup = new javax.swing.JCheckBox();
+        matchscore = new javax.swing.JLabel();
+        mismatchscore = new javax.swing.JLabel();
+        gapcostscore = new javax.swing.JLabel();
+        match = new javax.swing.JTextField();
+        mismatch = new javax.swing.JTextField();
+        gap = new javax.swing.JTextField();
+        databasetekst = new javax.swing.JLabel();
+        compostialadjustmentstekst = new javax.swing.JLabel();
+        compadjcombo = new javax.swing.JComboBox();
+        exporteerresultaten = new javax.swing.JLabel();
+        opslaanals = new javax.swing.JButton();
+        typebestand = new javax.swing.JComboBox();
+        opslaan = new javax.swing.JButton();
+        visualisatietekst = new javax.swing.JLabel();
+
+        jScrollPane1.setViewportView(jTextPane1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        bestandnaam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bestandnaamActionPerformed(evt);
+            }
+        });
+
+        zoek.setText("Zoek bestand");
+        zoek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zoekActionPerformed(evt);
+            }
+        });
+
+        Open.setText("Open");
+        Open.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpenActionPerformed(evt);
+            }
+        });
+
+        optiesdb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        optiesdb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optiesdbActionPerformed(evt);
+            }
+        });
+
+        kiesdb.setText("Upload naar Database");
+        kiesdb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kiesdbActionPerformed(evt);
+            }
+        });
+
+        orfbutton.setText("Voorspel ORF's");
+        orfbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orfbuttonActionPerformed(evt);
+            }
+        });
+
+        visualisatie.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout visualisatieLayout = new javax.swing.GroupLayout(visualisatie);
+        visualisatie.setLayout(visualisatieLayout);
+        visualisatieLayout.setHorizontalGroup(
+            visualisatieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        visualisatieLayout.setVerticalGroup(
+            visualisatieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 188, Short.MAX_VALUE)
+        );
+
+        BLASTparameters.setText("BLAST parameters:");
+
+        blastbutton.setText("BLAST");
+        blastbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blastbuttonActionPerformed(evt);
+            }
+        });
+
+        typeblast.setText("Type BLAST:");
+
+        typeblastcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        algoritme.setText("Algoritme:");
+
+        algoritmecombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        low_complexity.setText("Low Complexity");
+
+        matrixcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        matrix.setText("Matrix:");
+
+        mask_lookup.setText("Mask Lookup");
+
+        matchscore.setText("Match score:");
+
+        mismatchscore.setText("Mismatch score:");
+
+        gapcostscore.setText("gap costs:");
+
+        databasetekst.setText("Database:");
+
+        compostialadjustmentstekst.setText("Compositial adjustments");
+
+        compadjcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        compadjcombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compadjcomboActionPerformed(evt);
+            }
+        });
+
+        exporteerresultaten.setText("Exporteer resultaten: ");
+
+        opslaanals.setText("Opslaan als...");
+        opslaanals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opslaanalsActionPerformed(evt);
+            }
+        });
+
+        typebestand.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        opslaan.setText("Opslaan");
+
+        visualisatietekst.setText("Visualisatie:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(bestandnaam, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(zoek, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Open, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 1, Short.MAX_VALUE)
+                                .addComponent(orfbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(visualisatie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(mask_lookup)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(kiesdb))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(low_complexity)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(compadjcombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BLASTparameters)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(typeblast)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(typeblastcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(matchscore)
+                                            .addComponent(match, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(mismatchscore)
+                                            .addComponent(mismatch, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(gapcostscore)
+                                            .addComponent(gap, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(blastbutton)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(algoritme)
+                                                .addComponent(matrix))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(algoritmecombo, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(matrixcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(compostialadjustmentstekst))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(typebestand, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(opslaan, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(opslaanals))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(databasetekst)
+                                    .addComponent(exporteerresultaten))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(optiesdb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(visualisatietekst)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bestandnaam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zoek)
+                    .addComponent(Open))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(orfbutton)
+                .addGap(5, 5, 5)
+                .addComponent(visualisatietekst)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(visualisatie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BLASTparameters)
+                    .addComponent(exporteerresultaten))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(typeblast, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeblastcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typebestand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(algoritme)
+                    .addComponent(algoritmecombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(opslaanals)
+                    .addComponent(opslaan))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(matrixcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(matrix))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(compostialadjustmentstekst)
+                .addGap(13, 13, 13)
+                .addComponent(compadjcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(databasetekst)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(low_complexity)
+                    .addComponent(optiesdb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mask_lookup)
+                    .addComponent(kiesdb))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(matchscore)
+                    .addComponent(mismatchscore)
+                    .addComponent(gapcostscore))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(match, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mismatch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(blastbutton)
+                .addGap(118, 118, 118))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bestandnaamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bestandnaamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bestandnaamActionPerformed
+
+    private void zoekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoekActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zoekActionPerformed
+
+    private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OpenActionPerformed
+
+    private void optiesdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optiesdbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optiesdbActionPerformed
+
+    private void orfbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orfbuttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orfbuttonActionPerformed
+
+    private void kiesdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kiesdbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kiesdbActionPerformed
+
+    private void blastbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blastbuttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_blastbuttonActionPerformed
+
+    private void opslaanalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opslaanalsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opslaanalsActionPerformed
+
+    private void compadjcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compadjcomboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_compadjcomboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +387,38 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BLASTparameters;
+    private javax.swing.JButton Open;
+    private javax.swing.JLabel algoritme;
+    private javax.swing.JComboBox algoritmecombo;
+    private javax.swing.JTextField bestandnaam;
+    private javax.swing.JButton blastbutton;
+    private javax.swing.JComboBox compadjcombo;
+    private javax.swing.JLabel compostialadjustmentstekst;
+    private javax.swing.JLabel databasetekst;
+    private javax.swing.JLabel exporteerresultaten;
+    private javax.swing.JTextField gap;
+    private javax.swing.JLabel gapcostscore;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JButton kiesdb;
+    private javax.swing.JCheckBox low_complexity;
+    private javax.swing.JCheckBox mask_lookup;
+    private javax.swing.JTextField match;
+    private javax.swing.JLabel matchscore;
+    private javax.swing.JLabel matrix;
+    private javax.swing.JComboBox matrixcombo;
+    private javax.swing.JTextField mismatch;
+    private javax.swing.JLabel mismatchscore;
+    private javax.swing.JButton opslaan;
+    private javax.swing.JButton opslaanals;
+    private javax.swing.JComboBox optiesdb;
+    private javax.swing.JButton orfbutton;
+    private javax.swing.JComboBox typebestand;
+    private javax.swing.JLabel typeblast;
+    private javax.swing.JComboBox typeblastcombo;
+    private javax.swing.JPanel visualisatie;
+    private javax.swing.JLabel visualisatietekst;
+    private javax.swing.JButton zoek;
     // End of variables declaration//GEN-END:variables
 }
