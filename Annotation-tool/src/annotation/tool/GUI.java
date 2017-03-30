@@ -65,6 +65,7 @@ public class GUI extends javax.swing.JFrame {
         user = new javax.swing.JTextField();
         password = new javax.swing.JTextField();
         port = new javax.swing.JTextField();
+        verbindingbutton = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jTextPane1);
 
@@ -198,6 +199,14 @@ public class GUI extends javax.swing.JFrame {
 
         port.setEnabled(false);
 
+        verbindingbutton.setText("Test verbinding");
+        verbindingbutton.setEnabled(false);
+        verbindingbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verbindingbuttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -273,12 +282,13 @@ public class GUI extends javax.swing.JFrame {
                                     .addComponent(port)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(opslaan, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(opslaanals))
-                                    .addComponent(kiesdb, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                .addComponent(opslaan, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(opslaanals))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(verbindingbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(kiesdb)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -296,9 +306,9 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(visualisatie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BLASTparameters)
-                    .addComponent(exporteerresultaten))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exporteerresultaten)
+                    .addComponent(BLASTparameters))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(typeblast, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,9 +345,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(match, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mismatch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(gap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                        .addComponent(blastbutton))
+                            .addComponent(gap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -355,8 +363,12 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(port, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(kiesdb)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(kiesdb)
+                            .addComponent(verbindingbutton))))
+                .addGap(18, 18, 18)
+                .addComponent(blastbutton)
+                .addGap(0, 34, Short.MAX_VALUE))
         );
 
         pack();
@@ -385,6 +397,10 @@ public class GUI extends javax.swing.JFrame {
     private void opslaanalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opslaanalsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_opslaanalsActionPerformed
+
+    private void verbindingbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verbindingbuttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verbindingbuttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -461,6 +477,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel typeblast;
     private javax.swing.JComboBox typeblastcombo;
     private javax.swing.JTextField user;
+    private javax.swing.JButton verbindingbutton;
     private javax.swing.JPanel visualisatie;
     private javax.swing.JLabel visualisatietekst;
     // End of variables declaration//GEN-END:variables
