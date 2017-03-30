@@ -44,7 +44,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="zoek" min="-2" pref="175" max="-2" attributes="0"/>
+                              <Component id="blader" min="-2" pref="175" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Open" max="32767" attributes="0"/>
                           </Group>
@@ -140,7 +140,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="bestandnaam" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="zoek" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="blader" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Open" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -213,12 +213,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bestandnaamActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="zoek">
+    <Component class="javax.swing.JButton" name="blader">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Zoek bestand"/>
+        <Property name="text" type="java.lang.String" value="Blader..."/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zoekActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bladerActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Open">

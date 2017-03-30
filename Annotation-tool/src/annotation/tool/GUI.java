@@ -28,7 +28,7 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         bestandnaam = new javax.swing.JTextField();
-        zoek = new javax.swing.JButton();
+        blader = new javax.swing.JButton();
         Open = new javax.swing.JButton();
         optiesdb = new javax.swing.JComboBox();
         kiesdb = new javax.swing.JButton();
@@ -69,10 +69,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        zoek.setText("Zoek bestand");
-        zoek.addActionListener(new java.awt.event.ActionListener() {
+        blader.setText("Blader...");
+        blader.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zoekActionPerformed(evt);
+                bladerActionPerformed(evt);
             }
         });
 
@@ -186,7 +186,7 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(zoek, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(blader, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Open, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -256,7 +256,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bestandnaam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(zoek)
+                    .addComponent(blader)
                     .addComponent(Open))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(orfbutton)
@@ -319,9 +319,9 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bestandnaamActionPerformed
 
-    private void zoekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoekActionPerformed
+    private void bladerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bladerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_zoekActionPerformed
+    }//GEN-LAST:event_bladerActionPerformed
 
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
         // TODO add your handling code here:
@@ -392,6 +392,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel algoritme;
     private javax.swing.JComboBox algoritmecombo;
     private javax.swing.JTextField bestandnaam;
+    private javax.swing.JButton blader;
     private javax.swing.JButton blastbutton;
     private javax.swing.JComboBox compadjcombo;
     private javax.swing.JLabel compostialadjustmentstekst;
@@ -419,6 +420,5 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox typeblastcombo;
     private javax.swing.JPanel visualisatie;
     private javax.swing.JLabel visualisatietekst;
-    private javax.swing.JButton zoek;
     // End of variables declaration//GEN-END:variables
 }
