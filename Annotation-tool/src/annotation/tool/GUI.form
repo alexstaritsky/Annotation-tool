@@ -239,9 +239,6 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="bestandnaam">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bestandnaamActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="blader">
       <Properties>
@@ -410,9 +407,6 @@
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compadjcomboActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="exporteerresultaten">
       <Properties>
@@ -471,17 +465,11 @@
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hostActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="user">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="password">
       <Properties>

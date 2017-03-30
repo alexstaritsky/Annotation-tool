@@ -70,12 +70,6 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        bestandnaam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bestandnaamActionPerformed(evt);
-            }
-        });
-
         blader.setText("Blader...");
         blader.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,11 +163,6 @@ public class GUI extends javax.swing.JFrame {
 
         compadjcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Standaard" }));
         compadjcombo.setEnabled(false);
-        compadjcombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compadjcomboActionPerformed(evt);
-            }
-        });
 
         exporteerresultaten.setText("Exporteer resultaten: ");
 
@@ -202,18 +191,8 @@ public class GUI extends javax.swing.JFrame {
         jLabel4.setText("Port:");
 
         host.setEnabled(false);
-        host.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hostActionPerformed(evt);
-            }
-        });
 
         user.setEnabled(false);
-        user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userActionPerformed(evt);
-            }
-        });
 
         password.setEnabled(false);
 
@@ -383,10 +362,6 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bestandnaamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bestandnaamActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bestandnaamActionPerformed
-
     private void bladerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bladerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bladerActionPerformed
@@ -410,18 +385,6 @@ public class GUI extends javax.swing.JFrame {
     private void opslaanalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opslaanalsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_opslaanalsActionPerformed
-
-    private void compadjcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compadjcomboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_compadjcomboActionPerformed
-
-    private void hostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hostActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_hostActionPerformed
-
-    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userActionPerformed
 
     /**
      * @param args the command line arguments
