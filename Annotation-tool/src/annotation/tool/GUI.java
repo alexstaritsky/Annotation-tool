@@ -30,7 +30,6 @@ public class GUI extends javax.swing.JFrame {
         bestandnaam = new javax.swing.JTextField();
         blader = new javax.swing.JButton();
         Open = new javax.swing.JButton();
-        optiesdb = new javax.swing.JComboBox();
         kiesdb = new javax.swing.JButton();
         orfbutton = new javax.swing.JButton();
         visualisatie = new javax.swing.JPanel();
@@ -58,6 +57,14 @@ public class GUI extends javax.swing.JFrame {
         typebestand = new javax.swing.JComboBox();
         opslaan = new javax.swing.JButton();
         visualisatietekst = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        host = new javax.swing.JTextField();
+        user = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        port = new javax.swing.JTextField();
 
         jScrollPane1.setViewportView(jTextPane1);
 
@@ -77,20 +84,15 @@ public class GUI extends javax.swing.JFrame {
         });
 
         Open.setText("Open");
+        Open.setEnabled(false);
         Open.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OpenActionPerformed(evt);
             }
         });
 
-        optiesdb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        optiesdb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optiesdbActionPerformed(evt);
-            }
-        });
-
         kiesdb.setText("Upload naar Database");
+        kiesdb.setEnabled(false);
         kiesdb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kiesdbActionPerformed(evt);
@@ -98,6 +100,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         orfbutton.setText("Voorspel ORF's");
+        orfbutton.setEnabled(false);
         orfbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orfbuttonActionPerformed(evt);
@@ -120,6 +123,7 @@ public class GUI extends javax.swing.JFrame {
         BLASTparameters.setText("BLAST parameters:");
 
         blastbutton.setText("BLAST");
+        blastbutton.setEnabled(false);
         blastbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 blastbuttonActionPerformed(evt);
@@ -128,19 +132,24 @@ public class GUI extends javax.swing.JFrame {
 
         typeblast.setText("Type BLAST:");
 
-        typeblastcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        typeblastcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "blastn"}));
+        typeblastcombo.setEnabled(false);
 
         algoritme.setText("Algoritme:");
 
-        algoritmecombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        algoritmecombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "standaard"}));
+        algoritmecombo.setEnabled(false);
 
         low_complexity.setText("Low Complexity");
+        low_complexity.setEnabled(false);
 
-        matrixcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        matrixcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Standaard"}));
+        matrixcombo.setEnabled(false);
 
         matrix.setText("Matrix:");
 
         mask_lookup.setText("Mask Lookup");
+        mask_lookup.setEnabled(false);
 
         matchscore.setText("Match score:");
 
@@ -148,11 +157,18 @@ public class GUI extends javax.swing.JFrame {
 
         gapcostscore.setText("gap costs:");
 
+        match.setEnabled(false);
+
+        mismatch.setEnabled(false);
+
+        gap.setEnabled(false);
+
         databasetekst.setText("Database:");
 
         compostialadjustmentstekst.setText("Compositial adjustments");
 
-        compadjcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        compadjcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Standaard" }));
+        compadjcombo.setEnabled(false);
         compadjcombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 compadjcomboActionPerformed(evt);
@@ -162,17 +178,46 @@ public class GUI extends javax.swing.JFrame {
         exporteerresultaten.setText("Exporteer resultaten: ");
 
         opslaanals.setText("Opslaan als...");
+        opslaanals.setEnabled(false);
         opslaanals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opslaanalsActionPerformed(evt);
             }
         });
 
-        typebestand.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        typebestand.setModel(new javax.swing.DefaultComboBoxModel(new String[] { ".FASTA", ".txt" }));
+        typebestand.setEnabled(false);
 
         opslaan.setText("Opslaan");
+        opslaan.setEnabled(false);
 
         visualisatietekst.setText("Visualisatie:");
+
+        jLabel1.setText("Host");
+
+        jLabel2.setText("Username:");
+
+        jLabel3.setText("Password:");
+
+        jLabel4.setText("Port:");
+
+        host.setEnabled(false);
+        host.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hostActionPerformed(evt);
+            }
+        });
+
+        user.setEnabled(false);
+        user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userActionPerformed(evt);
+            }
+        });
+
+        password.setEnabled(false);
+
+        port.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,10 +239,6 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(orfbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(visualisatie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(mask_lookup)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kiesdb))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(low_complexity)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -230,24 +271,35 @@ public class GUI extends javax.swing.JFrame {
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(algoritmecombo, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(matrixcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(compostialadjustmentstekst))))
+                                    .addComponent(compostialadjustmentstekst)))
+                            .addComponent(mask_lookup)
+                            .addComponent(visualisatietekst))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(typebestand, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(opslaan, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(opslaanals))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(databasetekst)
-                                    .addComponent(exporteerresultaten))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(optiesdb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(visualisatietekst)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(jLabel1)
+                                    .addComponent(exporteerresultaten)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(databasetekst)
+                                        .addComponent(jLabel2)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(host)
+                                    .addComponent(user)
+                                    .addComponent(password)
+                                    .addComponent(port)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(opslaan, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(opslaanals))
+                                    .addComponent(kiesdb, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -284,32 +336,48 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(matrixcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(matrix))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(compostialadjustmentstekst)
-                .addGap(13, 13, 13)
-                .addComponent(compadjcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(databasetekst)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(low_complexity)
-                    .addComponent(optiesdb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mask_lookup)
-                    .addComponent(kiesdb))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(matchscore)
-                    .addComponent(mismatchscore)
-                    .addComponent(gapcostscore))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(match, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mismatch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(blastbutton)
-                .addGap(118, 118, 118))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(compostialadjustmentstekst)
+                        .addGap(13, 13, 13)
+                        .addComponent(compadjcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(low_complexity)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mask_lookup)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(matchscore)
+                            .addComponent(mismatchscore)
+                            .addComponent(gapcostscore))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(match, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mismatch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(gap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addComponent(blastbutton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(host, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(port, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(kiesdb)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
@@ -326,10 +394,6 @@ public class GUI extends javax.swing.JFrame {
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_OpenActionPerformed
-
-    private void optiesdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optiesdbActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_optiesdbActionPerformed
 
     private void orfbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orfbuttonActionPerformed
         // TODO add your handling code here:
@@ -350,6 +414,14 @@ public class GUI extends javax.swing.JFrame {
     private void compadjcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compadjcomboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_compadjcomboActionPerformed
+
+    private void hostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hostActionPerformed
+
+    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,6 +452,7 @@ public class GUI extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new GUI().setVisible(true);
             }
@@ -400,6 +473,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel exporteerresultaten;
     private javax.swing.JTextField gap;
     private javax.swing.JLabel gapcostscore;
+    private javax.swing.JTextField host;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JButton kiesdb;
@@ -413,11 +491,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel mismatchscore;
     private javax.swing.JButton opslaan;
     private javax.swing.JButton opslaanals;
-    private javax.swing.JComboBox optiesdb;
     private javax.swing.JButton orfbutton;
+    private javax.swing.JTextField password;
+    private javax.swing.JTextField port;
     private javax.swing.JComboBox typebestand;
     private javax.swing.JLabel typeblast;
     private javax.swing.JComboBox typeblastcombo;
+    private javax.swing.JTextField user;
     private javax.swing.JPanel visualisatie;
     private javax.swing.JLabel visualisatietekst;
     // End of variables declaration//GEN-END:variables
