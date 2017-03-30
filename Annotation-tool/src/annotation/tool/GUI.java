@@ -399,8 +399,9 @@ public class GUI extends javax.swing.JFrame {
         String Host = host.getText();
         String Username = user.getText();
         String Password = password.getText();
+        int Port = 1521;
         try {
-            int Port = Integer.parseInt(port.getText());
+            Port = Integer.parseInt(port.getText());
             dbcon = new DatabaseConnection(Host, Username, Password, Port);
 
         } catch (NumberFormatException e) {
@@ -419,6 +420,17 @@ public class GUI extends javax.swing.JFrame {
 
     private void verbindingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verbindingActionPerformed
         // TODO add your handling code here:
+        String Host = host.getText();
+        String Username = user.getText();
+        String Password = password.getText();
+        int Port = 1521;
+        try {
+            Port = Integer.parseInt(port.getText());
+            dbcon = new DatabaseConnection(Host, Username, Password, Port);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "De port bevat geen getal");
+        }
         if (DatabaseConnection.checkJDBCDriver() == true) {
             if (dbcon.testConnection() == true) {
                 kiesdb.setEnabled(true);
