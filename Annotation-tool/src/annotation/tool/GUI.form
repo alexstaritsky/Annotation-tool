@@ -121,8 +121,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="host" max="32767" attributes="0"/>
                                   <Component id="user" max="32767" attributes="0"/>
-                                  <Component id="password" alignment="0" max="32767" attributes="0"/>
                                   <Component id="port" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="password" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -470,31 +470,37 @@
     </Component>
     <Component class="javax.swing.JTextField" name="host">
       <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="cytosine.nl"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="user">
       <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="owe7_pg6"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="password">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="port">
       <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="1521"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="verbinding">
       <Properties>
         <Property name="text" type="java.lang.String" value="Check verbinding"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verbindingActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="password">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="blaat1234"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
