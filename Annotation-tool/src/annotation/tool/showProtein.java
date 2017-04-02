@@ -11,8 +11,8 @@ package annotation.tool;
  */
 import java.util.HashMap;
 
-public class showProtein extends showDNA {
-        public static String showProtein(String sequence){
+public class showProtein extends showORF {
+        public static String translate(String sequence){
             String seq = sequence;
             //String[] parts = SEQ.split("-");
             //String seq = parts[1]; //DNA
