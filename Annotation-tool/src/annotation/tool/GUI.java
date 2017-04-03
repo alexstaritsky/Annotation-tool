@@ -5,11 +5,15 @@
  */
 package annotation.tool;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alexander
  */
 public class GUI extends javax.swing.JFrame {
+
+    private DatabaseConnection dbcon;
 
     /**
      * Creates new form GUI
@@ -63,8 +67,8 @@ public class GUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         host = new javax.swing.JTextField();
         user = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
         port = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
         verbindingbutton = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jTextPane1);
@@ -191,13 +195,31 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel4.setText("Port:");
 
-        host.setEnabled(false);
+        host.setText("cytosine.nl");
 
-        user.setEnabled(false);
+        user.setText("owe7_pg6");
+        user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userActionPerformed(evt);
+            }
+        });
 
-        password.setEnabled(false);
+        port.setText("1521");
+        port.setToolTipText("");
 
-        port.setEnabled(false);
+        verbinding.setText("Check verbinding");
+        verbinding.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verbindingActionPerformed(evt);
+            }
+        });
+
+        password.setText("blaat1234");
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
 
         verbindingbutton.setText("Test verbinding");
         verbindingbutton.setEnabled(false);
@@ -278,10 +300,18 @@ public class GUI extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(host)
                                     .addComponent(user)
-                                    .addComponent(password)
-                                    .addComponent(port)))
+                                    .addComponent(port)
+                                    .addComponent(password)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(opslaan, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(opslaanals))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(kiesdb)))))))
                                 .addComponent(opslaan, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(opslaanals))
@@ -388,6 +418,18 @@ public class GUI extends javax.swing.JFrame {
 
     private void kiesdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kiesdbActionPerformed
         // TODO add your handling code here:
+        String Host = host.getText();
+        String Username = user.getText();
+        String Password = password.getText();
+        int Port = 1521;
+        try {
+            Port = Integer.parseInt(port.getText());
+            dbcon = new DatabaseConnection(Host, Username, Password, Port);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "De port bevat geen getal");
+        }
+
     }//GEN-LAST:event_kiesdbActionPerformed
 
     private void blastbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blastbuttonActionPerformed
@@ -398,6 +440,39 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_opslaanalsActionPerformed
 
+    private void verbindingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verbindingActionPerformed
+        // TODO add your handling code here:
+        String Host = host.getText();
+        String Username = user.getText();
+        String Password = password.getText();
+        int Port = 1521;
+        try {
+            Port = Integer.parseInt(port.getText());
+            dbcon = new DatabaseConnection(Host, Username, Password, Port);
+            if (DatabaseConnection.checkJDBCDriver() == true) {
+                if (dbcon.testConnection() == true) {
+                    kiesdb.setEnabled(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Er kon geen connectie gemaakt worden met de database.");
+
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "JDBC is niet (goed) geïnstalleerd.");
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "De port bevat geen getal");
+        }
+    }//GEN-LAST:event_verbindingActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userActionPerformed
+  
     private void verbindingbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verbindingbuttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verbindingbuttonActionPerformed
@@ -471,12 +546,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton opslaan;
     private javax.swing.JButton opslaanals;
     private javax.swing.JButton orfbutton;
-    private javax.swing.JTextField password;
+    private javax.swing.JPasswordField password;
     private javax.swing.JTextField port;
     private javax.swing.JComboBox typebestand;
     private javax.swing.JLabel typeblast;
     private javax.swing.JComboBox typeblastcombo;
     private javax.swing.JTextField user;
+    private javax.swing.JButton verbinding;
     private javax.swing.JButton verbindingbutton;
     private javax.swing.JPanel visualisatie;
     private javax.swing.JLabel visualisatietekst;
