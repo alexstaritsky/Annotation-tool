@@ -50,18 +50,13 @@ public class DatabaseConnection {
     }
 
     public boolean checkBestand(String bestandnaam) throws SQLException {
-        try {
-            Connection connection = connect();
-            Statement st = connection.createStatement();
-            String sql = (String.format("select bestandnaam from bestand where bestandnaam = '%s'", bestandnaam));
-            ResultSet raw = st.executeQuery(sql);
-            boolean out = raw.isBeforeFirst();
-            connection.close();
-            return out;
-        } catch (SQLException e) {
-            throw e;
-            //return false;
-        }
+        Connection connection = connect();
+        PreparedStatement statement = connection.prepareStatement("select * from bestand where bestandnaam = ?");
+        statement.setString(1, bestandnaam);
+        ResultSet raw = statement.executeQuery();
+        boolean isEmpty = raw.isBeforeFirst();
+        connection.close();
+        return isEmpty;
     }
 
     public boolean addBestand(int bestandID, String bestandnaam, String type) {

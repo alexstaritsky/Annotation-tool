@@ -452,12 +452,16 @@ public class GUI extends javax.swing.JFrame {
 
     private void kiesdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kiesdbActionPerformed
         try {
-            int bestandID = hashSHA256(bestand.getName());
-            dbcon.addBestand(bestandID, bestand.getName(), ".fasta");
-            for (Sequentie sequentie : sequenties) {
-                dbcon.addSequentie(hashSHA256(sequentie.getSequentie()), "DNA", sequentie.getSequentie(), bestandID);
+            if (dbcon.checkBestand(bestand.getName())) {
+                int bestandID = hashSHA256(bestand.getName());
+                dbcon.addBestand(bestandID, bestand.getName(), ".fasta");
+                for (Sequentie sequentie : sequenties) {
+                    dbcon.addSequentie(hashSHA256(sequentie.getSequentie()), "DNA", sequentie.getSequentie(), bestandID);
+                }
+                JOptionPane.showMessageDialog(null, "De data is succesvol naar de database geupload bestand!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Het bestand bestaat al op de database!\nVerwijder de entry op de database of kies een ander bestand!", "Error Message", JOptionPane.ERROR_MESSAGE);
             }
-            JOptionPane.showMessageDialog(null, "De data is succesvol naar de database geupload bestand!");
         } catch (NumberFormatException | NoSuchAlgorithmException e) {
             JOptionPane.showMessageDialog(null, "Er was een probleem bij het hashen van de bestandnaam of sequentie!", "Error Message", JOptionPane.ERROR_MESSAGE);
         } catch (Exception e) {
