@@ -86,6 +86,7 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Annotation-tool");
 
         bestandnaam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -426,6 +427,7 @@ public class GUI extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bladerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bladerActionPerformed
