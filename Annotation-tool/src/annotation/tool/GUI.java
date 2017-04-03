@@ -5,6 +5,10 @@
  */
 package annotation.tool;
 
+import java.io.File;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -17,6 +21,8 @@ public class GUI extends javax.swing.JFrame {
 
     private DatabaseConnection dbcon;
     private BestandLezen bestandLezer = new BestandLezen();
+    private File bestand;
+    private ArrayList<Sequentie> sequenties;
 
     /**
      * Creates new form GUI
@@ -430,30 +436,31 @@ public class GUI extends javax.swing.JFrame {
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
         String path = bestandnaam.getText();
         if (path != null | path != "") {
-            bestandLezer.FileReader(path);
+            sequenties = bestandLezer.FileReader(path);
+            if (sequenties != null) {
+                File bestand = new File(path);
+                orfbutton.setEnabled(true);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Er is geen pad opgegeven naar het bestand!");
         }
     }//GEN-LAST:event_OpenActionPerformed
 
     private void orfbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orfbuttonActionPerformed
-        // TODO add your handling code here:
+        enableDatabase();
     }//GEN-LAST:event_orfbuttonActionPerformed
 
     private void kiesdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kiesdbActionPerformed
-        // TODO add your handling code here:
-        String Host = host.getText();
-        String Username = user.getText();
-        String Password = password.getText();
-        int Port = 1521;
         try {
-            Port = Integer.parseInt(port.getText());
-            dbcon = new DatabaseConnection(Host, Username, Password, Port);
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "De port bevat geen getal");
+            int bestandID = hashSHA256(bestand.getName());
+            dbcon.addBestand(bestandID, bestand.getName(), ".fasta");
+            for (Sequentie sequentie : sequenties) {
+                dbcon.addSequentie(hashSHA256(sequentie.getSequentie()), "DNA", sequentie.getSequentie(), bestandID);
+            }
+            JOptionPane.showMessageDialog(null, "De data is succesvol naar de database geupload!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Er was een probleem bij het uploaden van de data naar de database:\n" + e.getMessage(), "Error Message", JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_kiesdbActionPerformed
 
     private void blastbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blastbuttonActionPerformed
@@ -475,7 +482,7 @@ public class GUI extends javax.swing.JFrame {
             dbcon = new DatabaseConnection(Host, Username, Password, Port);
             if (DatabaseConnection.checkJDBCDriver() == true) {
                 if (dbcon.testConnection() == true) {
-                    JOptionPane.showMessageDialog(null, String.format("Er was succesvol verbinding gemaakt met: '%s'", host));
+                    JOptionPane.showMessageDialog(null, String.format("Er was succesvol verbinding gemaakt met: '%s'", Host));
                     kiesdb.setEnabled(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Er kon geen connectie gemaakt worden met de database.");
@@ -533,6 +540,34 @@ public class GUI extends javax.swing.JFrame {
         });
     }
 
+    private int hashSHA256(String in) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] stringData = in.getBytes();
+            byte[] hash = digest.digest(stringData);
+            return (hash[0] << 24) & 0xff000000
+                    | (hash[1] << 16) & 0x00ff0000
+                    | (hash[2] << 8) & 0x0000ff00
+                    | (hash[3]) & 0x000000ff;
+        } catch (NoSuchAlgorithmException e) {
+            return -1;
+        }
+    }
+
+    private void enableDatabase() {
+        databasetekst.setEnabled(true);
+        jLabel1.setEnabled(true);
+        jLabel2.setEnabled(true);
+        jLabel3.setEnabled(true);
+        jLabel4.setEnabled(true);
+        host.setEnabled(true);
+        user.setEnabled(true);
+        password.setEnabled(true);
+        port.setEnabled(true);
+        verbinding.setEnabled(true);
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -547,16 +582,24 @@ public class GUI extends javax.swing.JFrame {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

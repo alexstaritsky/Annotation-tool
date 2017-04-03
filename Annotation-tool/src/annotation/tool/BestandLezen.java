@@ -23,10 +23,7 @@ public class BestandLezen {
 
     private final JFileChooser openFileChooser;
     public String pad;
-    private String header;
-    private Object forwardSeq;
-    private Object reverseSeq;
-    private ArrayList<String> sequentie = new ArrayList<>();
+    private ArrayList<Sequentie> sequentie = new ArrayList<>();
 
     private JFileChooser fileChooser;
     private BufferedReader inFile;
@@ -47,64 +44,34 @@ public class BestandLezen {
         return "";
     }
 
-    public void OpenActionPerformed(java.awt.event.ActionEvent evt, String tekstbestand) throws IOException {
-        try {
-            String line;
-            try (BufferedReader inFile = new BufferedReader(new FileReader(pad))) {
-                while ((line = inFile.readLine()) != null) {
-                    if (!line.startsWith("#")) {
-                        String[] values = line.split("/t");
-
-                    }
-                }
-            }
-        } catch (FileNotFoundException fnfe) {
-            System.out.println("Het bestand is niet gevonden");
-
-        } catch (IOException ioe) {
-            System.out.println("Het bestand kan niet gelezen worden");
-        } catch (Exception e) {
-            System.out.println("Onbekende fout: Raadpleeg een except!");
-        }
-    }
-
-    public void Bestand(String bestand) throws IOException {
-        try {
-            BufferedReader inFile = new BufferedReader(new FileReader(bestand));
-            String line;
-
-            while ((line = inFile.readLine()) != null) {
-                if (!line.startsWith("#")) {
-                    String[] gen = line.split(">,/t");
-
-                }
-            }
-        } catch (IOException ex) {
-            throw ex;
-        }
-    }
-
-    public ArrayList<String> FileReader(String pad) {
-        String line;
-        ArrayList<String> sequentie = new ArrayList<>();
+    public ArrayList<Sequentie> FileReader(String pad) {
+        String line, cleanLine;
+        String header = null;
+        StringBuilder sequentie = new StringBuilder();
+        ArrayList<Sequentie> sequenties = new ArrayList<>();
         try {
             inFile = new BufferedReader(new FileReader(pad));
-
             while ((line = inFile.readLine()) != null) {
-                if (line.contains("#")) {
-                    header = line;
-
-                } else {
-                    sequentie.add(line);
+                if (line.startsWith(">")) {
+                    if (header == null) {
+                        header = line;
+                    } else {
+                        sequenties.add(new Sequentie(0, header, sequentie.toString()));
+                        sequentie = new StringBuilder();
+                        header = line;
+                    }
+                } else if (!(cleanLine = line.toUpperCase().replace("", "").replace("", "").replace("", "")).equals("")) {
+                    sequentie.append(cleanLine);
                 }
             }
+            sequenties.add(new Sequentie(0, header, sequentie.toString()));
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Het geselecteerde bestand is niet gevonden", "Error Message", JOptionPane.ERROR_MESSAGE);
-
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Er heeft zich een input/output error voorgedaan", "Error Message", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            System.out.println("Onbekende fout: Raadpleeg een expert!");
         }
-        return sequentie;
-
+        return sequenties;
     }
 }
