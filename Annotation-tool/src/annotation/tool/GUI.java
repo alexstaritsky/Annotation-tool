@@ -467,7 +467,9 @@ public class GUI extends javax.swing.JFrame {
  */
     private void kiesdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kiesdbActionPerformed
         try {
+            
             if (!dbcon.checkBestand(bestand.getName())) {
+                  JOptionPane.showMessageDialog(null, "Dit kan een tijdje duren.");
                 int bestandID = hashSHA256(bestand.getName());
                 dbcon.addBestand(bestandID, bestand.getName(), ".fasta");
                 for (Sequentie sequentie : sequenties) {
@@ -511,7 +513,6 @@ public class GUI extends javax.swing.JFrame {
         String Password = password.getText();
         int Port = 1521;
         try {
-            JOptionPane.showMessageDialog(null, "Dit kan een tijdje duren.");
             Port = Integer.parseInt(port.getText());
             dbcon = new DatabaseConnection(Host, Username, Password, Port);
             if (DatabaseConnection.checkJDBCDriver() == true) {
