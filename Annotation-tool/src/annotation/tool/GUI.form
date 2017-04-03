@@ -41,17 +41,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="bestandnaam" min="-2" pref="401" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="blader" min="-2" pref="175" max="-2" attributes="0"/>
+                              <Component id="blader" min="-2" pref="174" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Open" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
-                              <Component id="orfbutton" min="-2" pref="345" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="orfbutton" min="-2" pref="345" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="visualisatie" max="32767" attributes="0"/>
@@ -60,44 +57,40 @@
                           <Component id="low_complexity" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="compadjcombo" alignment="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="BLASTparameters" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="typeblast" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="typeblastcombo" min="-2" pref="286" max="-2" attributes="0"/>
+                              <Component id="BLASTparameters" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="typeblast" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="typeblastcombo" min="-2" pref="286" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="algoritme" min="-2" max="-2" attributes="0"/>
+                                      <Component id="matrix" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="matchscore" min="-2" max="-2" attributes="0"/>
-                                          <Component id="match" min="-2" pref="98" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="mismatchscore" min="-2" max="-2" attributes="0"/>
-                                          <Component id="mismatch" min="-2" pref="101" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="gapcostscore" min="-2" max="-2" attributes="0"/>
-                                          <Component id="gap" min="-2" pref="106" max="-2" attributes="0"/>
-                                      </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="algoritmecombo" min="-2" pref="287" max="-2" attributes="0"/>
+                                      <Component id="matrixcombo" min="-2" pref="287" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="blastbutton" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="algoritme" min="-2" max="-2" attributes="0"/>
-                                              <Component id="matrix" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="algoritmecombo" min="-2" pref="287" max="-2" attributes="0"/>
-                                              <Component id="matrixcombo" min="-2" pref="287" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                              </Group>
+                              <Component id="compostialadjustmentstekst" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="matchscore" min="-2" max="-2" attributes="0"/>
+                                      <Component id="match" min="-2" pref="98" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="compostialadjustmentstekst" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="mismatchscore" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mismatch" min="-2" pref="101" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="blastbutton" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="gap" min="-2" pref="106" max="-2" attributes="0"/>
+                                      <Component id="gapcostscore" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Component id="mask_lookup" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -106,38 +99,32 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="typebestand" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="171" max="32767" attributes="0"/>
+                              <Component id="opslaan" min="-2" pref="113" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="opslaanals" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="exporteerresultaten" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="databasetekst" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="databasetekst" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="verbinding" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="kiesdb" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Component id="host" max="32767" attributes="0"/>
                                   <Component id="user" max="32767" attributes="0"/>
                                   <Component id="port" alignment="0" max="32767" attributes="0"/>
                                   <Component id="password" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="opslaan" min="-2" pref="113" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="opslaanals" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="verbinding" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="kiesdb" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -190,14 +177,15 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Component id="compostialadjustmentstekst" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="compadjcombo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="low_complexity" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="mask_lookup" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="matchscore" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="mismatchscore" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -287,6 +275,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
@@ -305,6 +294,7 @@
     <Component class="javax.swing.JLabel" name="BLASTparameters">
       <Properties>
         <Property name="text" type="java.lang.String" value="BLAST parameters:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="blastbutton">
@@ -319,6 +309,7 @@
     <Component class="javax.swing.JLabel" name="typeblast">
       <Properties>
         <Property name="text" type="java.lang.String" value="Type BLAST:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="typeblastcombo">
@@ -327,20 +318,25 @@
           <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;blastn&quot;})" type="code"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="algoritme">
       <Properties>
         <Property name="text" type="java.lang.String" value="Algoritme:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="algoritmecombo">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;standaard&quot;})" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Standaard&quot;})" type="code"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="algoritmecomboActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="low_complexity">
       <Properties>
@@ -359,6 +355,7 @@
     <Component class="javax.swing.JLabel" name="matrix">
       <Properties>
         <Property name="text" type="java.lang.String" value="Matrix:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="mask_lookup">
@@ -370,16 +367,19 @@
     <Component class="javax.swing.JLabel" name="matchscore">
       <Properties>
         <Property name="text" type="java.lang.String" value="Match score:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="mismatchscore">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mismatch score:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="gapcostscore">
       <Properties>
-        <Property name="text" type="java.lang.String" value="gap costs:"/>
+        <Property name="text" type="java.lang.String" value="Gap costs:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="match">
@@ -400,11 +400,13 @@
     <Component class="javax.swing.JLabel" name="databasetekst">
       <Properties>
         <Property name="text" type="java.lang.String" value="Database:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="compostialadjustmentstekst">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Compositial adjustments"/>
+        <Property name="text" type="java.lang.String" value="Compositial adjustments:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="compadjcombo">
@@ -418,6 +420,7 @@
     <Component class="javax.swing.JLabel" name="exporteerresultaten">
       <Properties>
         <Property name="text" type="java.lang.String" value="Exporteer resultaten: "/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="opslaanals">
@@ -446,36 +449,43 @@
     <Component class="javax.swing.JLabel" name="visualisatietekst">
       <Properties>
         <Property name="text" type="java.lang.String" value="Visualisatie:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Host"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Username:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Password:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Port:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="host">
       <Properties>
         <Property name="text" type="java.lang.String" value="cytosine.nl"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="user">
       <Properties>
         <Property name="text" type="java.lang.String" value="owe7_pg6"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userActionPerformed"/>
@@ -485,11 +495,13 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="1521"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="verbinding">
       <Properties>
         <Property name="text" type="java.lang.String" value="Check verbinding"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verbindingActionPerformed"/>
@@ -498,6 +510,7 @@
     <Component class="javax.swing.JPasswordField" name="password">
       <Properties>
         <Property name="text" type="java.lang.String" value="blaat1234"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordActionPerformed"/>
