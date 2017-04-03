@@ -429,12 +429,18 @@ public class GUI extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/***
+ * Deze functie zorgt ervoor dat er geselecteerde bestand in het pad komt te staan. Ook dat wanneer er geklikto wordt op 'blader' dat er werkelijk iets gebeurd. 
+ * @param evt 
+ */
     private void bladerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bladerActionPerformed
         String path = bestandLezer.bladerActionPerformed(evt, this);
         bestandnaam.setText(path);
     }//GEN-LAST:event_bladerActionPerformed
-
+/***
+ * Deze functie zorgt ervoor dat wanneer er op 'blader' geklikt wordt, een navigator te zien is waar er een bestand van gekozen kan worden. en zet deze dus in het pad. 
+ * @param evt 
+ */
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
         String path = bestandnaam.getText();
         if (path != null | path != "") {
