@@ -68,8 +68,8 @@ public class GUI extends javax.swing.JFrame {
         host = new javax.swing.JTextField();
         user = new javax.swing.JTextField();
         port = new javax.swing.JTextField();
-        verbinding = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
+        verbindingbutton = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jTextPane1);
 
@@ -221,6 +221,14 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        verbindingbutton.setText("Test verbinding");
+        verbindingbutton.setEnabled(false);
+        verbindingbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verbindingbuttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -302,9 +310,15 @@ public class GUI extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(opslaanals))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(verbinding)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(kiesdb)))))))
+                                .addComponent(opslaan, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(opslaanals))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(verbindingbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(kiesdb)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -381,7 +395,7 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(kiesdb)
-                            .addComponent(verbinding))))
+                            .addComponent(verbindingbutton))))
                 .addGap(18, 18, 18)
                 .addComponent(blastbutton)
                 .addGap(0, 34, Short.MAX_VALUE))
@@ -458,6 +472,10 @@ public class GUI extends javax.swing.JFrame {
     private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userActionPerformed
+  
+    private void verbindingbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verbindingbuttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verbindingbuttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -535,6 +553,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox typeblastcombo;
     private javax.swing.JTextField user;
     private javax.swing.JButton verbinding;
+    private javax.swing.JButton verbindingbutton;
     private javax.swing.JPanel visualisatie;
     private javax.swing.JLabel visualisatietekst;
     // End of variables declaration//GEN-END:variables
