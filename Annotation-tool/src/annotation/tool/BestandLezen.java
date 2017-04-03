@@ -12,8 +12,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -21,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-public class BestandLezen extends javax.swing.JFrame {
+public class BestandLezen {
 
     private final JFileChooser openFileChooser;
     public String pad;
@@ -34,45 +32,22 @@ public class BestandLezen extends javax.swing.JFrame {
     private BufferedReader inFile;
 
     public BestandLezen() {
-        initComponents();
         openFileChooser = new JFileChooser();
-        openFileChooser.setCurrentDirectory(new File("C:/Users/Administrator/Desktop/bases_100.txt"));
     }
 
-    private void initComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static void main(String args[]) throws FileNotFoundException, IOException {
-        BufferedReader bufRead = new BufferedReader(new FileReader("bases_100.txt"));
-        {
-            String myLine = null;
-            if (myLine.startsWith(">")) {
-                String[] sequentieInfo = myLine.substring(1).split(" ");
-
-                while (((myLine = bufRead.readLine()) != null) && !myLine.startsWith(">")) {
-                    System.out.println("myLine");
-                }
-            }
-        }
-    }
-
-    private void bladerActionPerformed(java.awt.event.ActionEvent evt) {
+    public String bladerActionPerformed(java.awt.event.ActionEvent evt, GUI gui) {
         File selectedFile;
         int reply;
-        Object blader = null;
-        if (evt.getSource() == blader) {
-            fileChooser = new JFileChooser();
-            reply = fileChooser.showOpenDialog(this);
-            if (reply == JFileChooser.APPROVE_OPTION) {
-                selectedFile = fileChooser.getSelectedFile();
-                bestand.setText(selectedFile.getAbsolutePath());
-            }
+        fileChooser = new JFileChooser();
+        reply = fileChooser.showOpenDialog(gui);
+        if (reply == JFileChooser.APPROVE_OPTION) {
+            selectedFile = fileChooser.getSelectedFile();
+            return selectedFile.getAbsolutePath();
         }
+        return "";
     }
 
-    public void OpenActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
-        String tekstbestand = bestand.getText();
+    public void OpenActionPerformed(java.awt.event.ActionEvent evt, String tekstbestand) throws IOException {
         try {
             String line;
             try (BufferedReader inFile = new BufferedReader(new FileReader(pad))) {
@@ -103,34 +78,33 @@ public class BestandLezen extends javax.swing.JFrame {
                     String[] gen = line.split(">,/t");
 
                 }
-                
-            } 
-                
-        } catch (IOException ex) { 
-            Logger.getLogger (bestandlezen.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-public ArrayList<String> FileReader(String pad) throws FileNotFoundException {
-    String line;
-    ArrayList<String> sequentie = new ArrayList<>();
-    try {
-        inFile = new BufferedReader(new FileReader(pad));
-        
-        while ((line =inFile.readLine()) !=null) {
-            if (line.contains("#")) {
-                header = line;
-                
-            } else {
-                sequentie.add(line);
             }
+        } catch (IOException ex) {
+            throw ex;
         }
-    } catch (FileNotFoundException ex) {
-        JOptionPane.showMessageDialog(null, "Het geselecteerde bestand is niet gevonden", "Error Message", JOptionPane.ERROR_MESSAGE);
-        
-    } catch (IOException ex) {
-        JOptionPane.showMessageDialog(null, "Er heeft zich een input/output error voorgedaan", "Error Message", JOptionPane.ERROR_MESSAGE);
     }
-    return sequentie;
-    
-}
+
+    public ArrayList<String> FileReader(String pad) {
+        String line;
+        ArrayList<String> sequentie = new ArrayList<>();
+        try {
+            inFile = new BufferedReader(new FileReader(pad));
+
+            while ((line = inFile.readLine()) != null) {
+                if (line.contains("#")) {
+                    header = line;
+
+                } else {
+                    sequentie.add(line);
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Het geselecteerde bestand is niet gevonden", "Error Message", JOptionPane.ERROR_MESSAGE);
+
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Er heeft zich een input/output error voorgedaan", "Error Message", JOptionPane.ERROR_MESSAGE);
+        }
+        return sequentie;
+
+    }
 }
