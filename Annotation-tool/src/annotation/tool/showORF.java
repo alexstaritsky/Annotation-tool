@@ -18,6 +18,7 @@ public class showORF {
 
         //Arraylist voor ORFs
         List orfs = new ArrayList();
+        StringBuilder cds = new StringBuilder();
         
         //Variabelen
         String codon;
@@ -25,21 +26,33 @@ public class showORF {
         String START = "M";
         String STOP = "*";
         boolean inORF = false;
+        String CDS;
         
         //Loop door het DNA sequentie
-        for(int i=0; i< (sequence.length())/3;i++){
+        for (int i=0; i< (sequence.length())/3;i++){
             
             //Leest per 3 nucleotiden
             codon = sequence.substring(i*3,i*3+3);
             
             String aa = showProtein.translate(codon);
+                //Vind het startcodon
                 if (aa.equals(START) && inORF==false){
                     inORF = true;
+                    
                 }
+                //Vind het stopcodon
                 if (aa.equals(STOP) && inORF==true){
                     inORF = false;
                 }
-                System.out.println(codon+" "+aa+" "+inORF);
-            }
+                
+                //Stopt CDS in een arraylist
+                while(inORF==true){
+                    //System.out.println(codon+" "+inORF);
+                    cds.append(codon);                    
+                    orfs.add(cds);
+                    break;
+                }
+        }
+        System.out.println(cds);
     }
 }
