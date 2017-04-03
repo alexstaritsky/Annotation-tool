@@ -461,13 +461,17 @@ public class GUI extends javax.swing.JFrame {
 
     private void kiesdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kiesdbActionPerformed
         try {
-            if (dbcon.checkBestand(bestand.getName())) {
+            if (!dbcon.checkBestand(bestand.getName())) {
                 int bestandID = hashSHA256(bestand.getName());
                 dbcon.addBestand(bestandID, bestand.getName(), ".fasta");
                 for (Sequentie sequentie : sequenties) {
-                    dbcon.addSequentie(hashSHA256(sequentie.getSequentie()), "DNA", sequentie.getSequentie(), bestandID);
+                    String seq = sequentie.getSequentie();
+                    System.out.println(seq);
+                    int sequentieID = hashSHA256(seq);
+                    System.out.println(sequentieID);
+                    dbcon.addSequentie(sequentieID, "DNA", seq, bestandID);
                 }
-                JOptionPane.showMessageDialog(null, "De data is succesvol naar de database geupload bestand!");
+                JOptionPane.showMessageDialog(null, "De data is succesvol naar de database geupload!");
             } else {
                 JOptionPane.showMessageDialog(null, "Het bestand bestaat al op de database!\nVerwijder de entry op de database of kies een ander bestand!", "Error Message", JOptionPane.ERROR_MESSAGE);
             }
@@ -566,7 +570,7 @@ public class GUI extends javax.swing.JFrame {
         for (byte b : hash) {
             hex.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
         }
-        int output = Integer.parseInt(hex.toString().substring(0, 8), 16);
+        int output = Integer.parseInt(hex.toString().substring(0, 6), 16);
         return output;
     }
 /***

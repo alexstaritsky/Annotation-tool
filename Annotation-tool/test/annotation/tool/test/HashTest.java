@@ -20,12 +20,12 @@ public class HashTest {
         for (byte b : hash) {
             hex.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
         }
-        int output = Integer.parseInt(hex.toString().substring(0, 8), 16);
+        int output = Integer.parseInt(hex.toString().substring(0, 6), 16);
         return output;
     }
 
     public static void main(String[] args) throws NumberFormatException, NoSuchAlgorithmException {
-        testString = "Hello World!";
+        testString = "testfasta.fasta";
         System.out.println(hashSHA256(testString));
     }
 }
