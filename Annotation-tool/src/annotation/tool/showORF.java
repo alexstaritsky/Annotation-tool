@@ -14,11 +14,11 @@ import java.util.*;
 public class showORF {
     public static void main(String[]args){
         //Test sequentie
-        String sequence = "CCACACCACACCCACACACCCAUGCACACCACACCACACACCACACCACACCCACACACACACATCCTAACACTACCCTAACACAGCCCTTAA";
+        String sequence = "CCACACCACACCCACACACCCAUGCACACCACACCACACACCACACCACACCCACACACACACATCCTAACACTACCCTAACACAGCCCTTAACCACACCACACCCACACACCCAUGCACACCACACCACACACCACACCACACCCACACACACACATCCTAACACTACCCTAACACAGCCCTTAACCACACCACACCCACACACCCAUGCACACCACACCACACACCACACCACACCCACACACACACATCCTAACACTACCCTAACACAGCCCTTAACCACACCACACCCACACACCCAUGCACACCACACCACACACCACACCACACCCACACACACACATCCTAACACTACCCTAACACAGCCCTTAA";
 
         //Arraylist voor ORFs
-        List orfs = new ArrayList();
-        StringBuilder cds = new StringBuilder();
+        List<SequenceAnnotation> orfs = new ArrayList<>();
+        StringBuilder CDS = new StringBuilder();
         
         //Variabelen
         String codon;
@@ -26,7 +26,6 @@ public class showORF {
         String START = "M";
         String STOP = "*";
         boolean inORF = false;
-        String CDS;
         
         //Loop door het DNA sequentie
         for (int i=0; i< (sequence.length())/3;i++){
@@ -48,11 +47,17 @@ public class showORF {
                 //Stopt CDS in een arraylist
                 while(inORF==true){
                     //System.out.println(codon+" "+inORF);
-                    cds.append(codon);                    
-                    orfs.add(cds);
+                    if(codon.startsWith("AUG")){
+                        CDS.append(codon);
+                        orfs.add(new SequenceAnnotation(CDS.toString()));
+                    }
                     break;
                 }
         }
-        System.out.println(cds);
+        for (int i = 0;i<orfs.size();i++){
+            System.out.println(orfs.get(i));
+        }
+        
+        
     }
 }
