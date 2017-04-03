@@ -9,9 +9,11 @@ import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import static annotation.tool.showORF.*;
 
 /**
  *
@@ -22,7 +24,8 @@ public class GUI extends javax.swing.JFrame {
     private DatabaseConnection dbcon;
     private BestandLezen bestandLezer = new BestandLezen();
     private File bestand;
-    private ArrayList<Sequentie> sequenties;
+    private List<Sequentie> sequenties;
+    private List<List<SequenceAnnotation>> allorfs;  
 
     /**
      * Creates new form GUI
@@ -459,6 +462,12 @@ public class GUI extends javax.swing.JFrame {
  * @param evt 
  */
     private void orfbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orfbuttonActionPerformed
+        allorfs = new ArrayList();
+        for (Sequentie s:sequenties){
+            allorfs.add(ORF(s.getSequentie()));
+        }
+        System.out.println(allorfs);
+        
         enableDatabase();
     }//GEN-LAST:event_orfbuttonActionPerformed
 /**
