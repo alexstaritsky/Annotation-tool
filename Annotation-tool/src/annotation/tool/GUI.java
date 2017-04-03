@@ -454,11 +454,17 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Er is geen pad opgegeven naar het bestand!");
         }
     }//GEN-LAST:event_OpenActionPerformed
-
+/**
+ * Actionperformed van de ORF voorspeller, na het drukken op de orfbutton worden de orfs uit het .fasta-bestand voorspeld.
+ * @param evt 
+ */
     private void orfbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orfbuttonActionPerformed
         enableDatabase();
     }//GEN-LAST:event_orfbuttonActionPerformed
-
+/**
+ * Actionperformed van het uploaden van de gegevens naar de database. Er wordt aangegeven met melding of het is gelukt of niet en bij een een exception waar er een probleem is. 
+ * @param evt 
+ */
     private void kiesdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kiesdbActionPerformed
         try {
             if (!dbcon.checkBestand(bestand.getName())) {
@@ -479,15 +485,25 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Er was een probleem bij het uploaden van de data naar de database:\n" + e.getMessage(), "Error Message", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_kiesdbActionPerformed
-
+/**
+ * Deze actionperformed heeft nog geen functie, oorspronkelijk bedoelt voor het blasten van de gegevens.
+ * @param evt 
+ */
     private void blastbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blastbuttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_blastbuttonActionPerformed
-
+/**
+ * Deze actionperformed heeft nog geen functie, oorspronkelijk bedoelt voor het opslaan van de orfs.
+ * @param evt 
+ */
     private void opslaanalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opslaanalsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_opslaanalsActionPerformed
-
+/**
+ * Maakt een connectie met de database, als dit wel/of niet lukt geeft deze functie dit aan d.m.v. een pop-up melding. ook zal deze functie aangeven wanneer er geen JDBC is geinstalleerd.
+ * Als er een teken anders dan een getal in de port zit, geeft de functie dit aan.
+ * @param evt 
+ */
     private void verbindingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verbindingActionPerformed
         // TODO add your handling code here:
         String Host = host.getText();
@@ -513,26 +529,38 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "De port bevat geen getal");
         }
     }//GEN-LAST:event_verbindingActionPerformed
-
+/**
+ * Deze actionperformed heeft geen functie.
+ * @param evt 
+ */
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
-
+/**
+ * Deze actionperformed heeft geen functie.
+ * @param evt 
+ */
     private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userActionPerformed
-
+/**
+ * Deze actionperformed heeft geen functie.
+ * @param evt 
+ */
     private void algoritmecomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_algoritmecomboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_algoritmecomboActionPerformed
-
+/**
+ * Deze actionperformed heeft geen functie.
+ * @param evt 
+ */
     private void bestandnaamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bestandnaamActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bestandnaamActionPerformed
 
-    /***
-     * 
-     */
+/**
+ * Checkt het veld waarin het pad naar de gekozen bestand is gevuld en update dit veld. Als dit veld gevuld is, zet deze functie de openbutton aan, hierdoor is de openbutton klikbaar.
+ */
     private void addPathListener() {
         bestandnaam.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -559,7 +587,14 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
-
+/**
+ * 
+ * Een functie die de invoer uit een breed domein van waarden omzet in een kleiner bereik
+ * @param in
+ * @return
+ * @throws NumberFormatException
+ * @throws NoSuchAlgorithmException 
+ */
     public static int hashSHA256(String in) throws NumberFormatException, NoSuchAlgorithmException {
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         digest.update(in.getBytes());
