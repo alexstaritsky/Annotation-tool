@@ -438,7 +438,7 @@ public class GUI extends javax.swing.JFrame {
         if (path != null | path != "") {
             sequenties = bestandLezer.FileReader(path);
             if (sequenties != null) {
-                File bestand = new File(path);
+                bestand = new File(path);
                 orfbutton.setEnabled(true);
             }
         } else {
@@ -457,7 +457,9 @@ public class GUI extends javax.swing.JFrame {
             for (Sequentie sequentie : sequenties) {
                 dbcon.addSequentie(hashSHA256(sequentie.getSequentie()), "DNA", sequentie.getSequentie(), bestandID);
             }
-            JOptionPane.showMessageDialog(null, "De data is succesvol naar de database geupload!");
+            JOptionPane.showMessageDialog(null, "De data is succesvol naar de database geupload bestand!");
+        } catch (NumberFormatException | NoSuchAlgorithmException e) {
+            JOptionPane.showMessageDialog(null, "Er was een probleem bij het hashen van de bestandnaam of sequentie!", "Error Message", JOptionPane.ERROR_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Er was een probleem bij het uploaden van de data naar de database:\n" + e.getMessage(), "Error Message", JOptionPane.ERROR_MESSAGE);
         }

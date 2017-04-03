@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -48,19 +49,19 @@ public class DatabaseConnection {
         return false;
     }
 
-    public boolean checkBestand(String bestandnaam) {
+    public boolean checkBestand(String bestandnaam) throws SQLException {
         try {
             Connection connection = connect();
-            PreparedStatement statement = connection.prepareStatement("select * from bestand where bestandnaam = ?");
-            statement.setString(1, bestandnaam);
-            ResultSet raw = statement.executeQuery();
-            boolean isEmpty = raw.isBeforeFirst();
+            Statement st = connection.createStatement();
+            String sql = (String.format("select bestandnaam from bestand where bestandnaam = '%s'", bestandnaam));
+            ResultSet raw = st.executeQuery(sql);
+            boolean out = raw.isBeforeFirst();
             connection.close();
-            return isEmpty;
+            return out;
         } catch (SQLException e) {
-            System.out.println(e);
+            throw e;
+            //return false;
         }
-        return false;
     }
 
     public boolean addBestand(int bestandID, String bestandnaam, String type) {
