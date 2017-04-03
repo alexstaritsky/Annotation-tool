@@ -438,7 +438,8 @@ public class GUI extends javax.swing.JFrame {
         bestandnaam.setText(path);
     }//GEN-LAST:event_bladerActionPerformed
 /***
- * Deze functie zorgt ervoor dat wanneer er op 'blader' geklikt wordt, een navigator te zien is waar er een bestand van gekozen kan worden. en zet deze dus in het pad. 
+ * Deze functie zorgt ervoor dat wanneer er op 'blader' geklikt wordt, een navigator te zien is waar er een bestand van gekozen kan worden en zet deze dus in het pad. 
+ * Wanneer er geen pad is opgegeven, zal er een popup hierover verschijnen.
  * @param evt 
  */
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
@@ -527,6 +528,9 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bestandnaamActionPerformed
 
+    /***
+     * 
+     */
     private void addPathListener() {
         bestandnaam.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -565,7 +569,9 @@ public class GUI extends javax.swing.JFrame {
         int output = Integer.parseInt(hex.toString().substring(0, 8), 16);
         return output;
     }
-
+/***
+ * Deze functie zorgt ervoor dat alle velden en buttons openstaan en gebruikt kunnen worden. 
+ */
     private void enableDatabase() {
         databasetekst.setEnabled(true);
         jLabel1.setEnabled(true);
