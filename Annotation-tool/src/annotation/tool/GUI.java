@@ -466,9 +466,7 @@ public class GUI extends javax.swing.JFrame {
                 dbcon.addBestand(bestandID, bestand.getName(), ".fasta");
                 for (Sequentie sequentie : sequenties) {
                     String seq = sequentie.getSequentie();
-                    System.out.println(seq);
                     int sequentieID = hashSHA256(seq);
-                    System.out.println(sequentieID);
                     dbcon.addSequentie(sequentieID, "DNA", seq, bestandID);
                 }
                 JOptionPane.showMessageDialog(null, "De data is succesvol naar de database geupload!");
