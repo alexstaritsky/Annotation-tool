@@ -16,7 +16,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *deze class is geschreven om de gekozen bestanden te verwerken. 
  * @author Administrator
  */
 public class BestandLezen {
@@ -31,7 +31,14 @@ public class BestandLezen {
     public BestandLezen() {
         openFileChooser = new JFileChooser();
     }
-
+/***
+ * Deze functie haalt een bestand op wanneer er op 'blader'geklikt wordt en het bestand gekozen wordt. Vervolgens zet hij deze in de pad.
+ * Er zijn verschillende catches gebruikt om de gebuiker op weg te helpen als er geen bestand is of gevonden kan worden.
+ * @param evt
+ * @param gui de button 'blader' staat in de GUI
+ * @return het geselcteerde bestand komt in het pad te staan. 
+ * 
+ */
     public String bladerActionPerformed(java.awt.event.ActionEvent evt, GUI gui) {
         File selectedFile;
         int reply;
@@ -44,6 +51,12 @@ public class BestandLezen {
         return "";
     }
 
+    /***
+     * Deze functie maakt een ArrayList aan om de verschillende sequenties in de List te zetten. 
+     * Er zijn verschillende catches gebruikt om de gebuiker op weg te helpen als er geen bestand is of gevonden kan worden.
+     * @param pad. Dit is het geselecteerde pad
+     * @return retuneerd elke regel van het bestand die in het pad geselecteerd is. Alleen de header wordt niet meegenomen.
+     */
     public ArrayList<Sequentie> FileReader(String pad) {
         String line, cleanLine;
         String header = null;
