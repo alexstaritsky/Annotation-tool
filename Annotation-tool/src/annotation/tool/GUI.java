@@ -540,18 +540,16 @@ public class GUI extends javax.swing.JFrame {
         });
     }
 
-    private int hashSHA256(String in) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] stringData = in.getBytes();
-            byte[] hash = digest.digest(stringData);
-            return (hash[0] << 24) & 0xff000000
-                    | (hash[1] << 16) & 0x00ff0000
-                    | (hash[2] << 8) & 0x0000ff00
-                    | (hash[3]) & 0x000000ff;
-        } catch (NoSuchAlgorithmException e) {
-            return -1;
+    public static int hashSHA256(String in) throws NumberFormatException, NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        digest.update(in.getBytes());
+        byte[] hash = digest.digest();
+        StringBuffer hex = new StringBuffer();
+        for (byte b : hash) {
+            hex.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
         }
+        int output = Integer.parseInt(hex.toString().substring(0, 8), 16);
+        return output;
     }
 
     private void enableDatabase() {
