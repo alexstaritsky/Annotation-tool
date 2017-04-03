@@ -11,9 +11,13 @@ package annotation.tool;
  */
 public class SequenceAnnotation {
     private String cds;
+    private int startPos;
+    private int stopPos;
     
     public SequenceAnnotation(String cds){
         this.cds = cds;
+        this.startPos = startPos;
+        this.stopPos = stopPos;
     }
     
     /**
@@ -21,6 +25,14 @@ public class SequenceAnnotation {
      */
     public String getcds(){
         return cds;
+    }
+    
+    public int getstartPos(){
+        return startPos;
+    }
+    
+    public int getstopPos(){
+        return stopPos;
     }
     
     @Override

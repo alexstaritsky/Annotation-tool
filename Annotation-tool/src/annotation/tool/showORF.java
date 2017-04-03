@@ -26,6 +26,8 @@ public class showORF {
         String START = "M";
         String STOP = "*";
         boolean inORF = false;
+        int startPos = 0;
+        int stopPos = 0;
         
         //Loop door het DNA sequentie
         for (int i=0; i< (sequence.length())/3;i++){
@@ -37,11 +39,12 @@ public class showORF {
                 //Vind het startcodon
                 if (aa.equals(START) && inORF==false){
                     inORF = true;
-                    
+                    startPos = i*3;
                 }
                 //Vind het stopcodon
                 if (aa.equals(STOP) && inORF==true){
                     inORF = false;
+                    stopPos = i*3;
                 }
                 
                 //Stopt CDS in een arraylist
@@ -53,9 +56,7 @@ public class showORF {
                     }
                     break;
                 }
-        }
-        for (int i = 0;i<orfs.size();i++){
-            System.out.println(orfs.get(i));
+                System.out.println(startPos+" "+stopPos);
         }
         
         
