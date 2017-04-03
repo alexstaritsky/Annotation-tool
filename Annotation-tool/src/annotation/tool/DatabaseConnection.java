@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *
+ * De functie van deze class is een connectie maken met een database en het inlezen en invoeren van een bestand in deze database.
  * @author Alexander
  */
 public class DatabaseConnection {
@@ -19,14 +19,24 @@ public class DatabaseConnection {
     private String username;
     private String password;
     private int port;
-
+    /**
+     * Met deze functie worden er gegeven opgevraagd voor het maken van een connectie gemaakt met een database, hierbij wordt er gevraagd naar de host(url van de database), username, password en de port.
+     * 
+     * @param host
+     * @param username
+     * @param password
+     * @param port 
+     */
     public DatabaseConnection(String host, String username, String password, int port) {
         this.host = host;
         this.username = username;
         this.password = password;
         this.port = port;
     }
-
+/**
+ * Deze functie checkt of er een juist JDBC driver aanwezig is Als dit er niet is returnt hij false en als het wel aanwezig is, true.
+ * @return false/true
+ */
     public static boolean checkJDBCDriver() {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -35,7 +45,10 @@ public class DatabaseConnection {
         }
         return true;
     }
-
+/**
+ * Deze functie test de connectie, wanneer er connectie gemaakt kan worden, returnt hij true en anders false.
+ * @return false/true
+ */
     public boolean testConnection() {
         try {
             Connection connection = connect();
@@ -48,7 +61,12 @@ public class DatabaseConnection {
         }
         return false;
     }
-
+/**
+ * Deze functie kijkt of het bestand dat geupload wordt al aanwezig is op de database.
+ * @param bestandnaam
+ * @return isEmpty
+ * @throws SQLException 
+ */
     public boolean checkBestand(String bestandnaam) throws SQLException {
         Connection connection = connect();
         PreparedStatement statement = connection.prepareStatement("select * from bestand where bestandnaam = ?");
@@ -58,7 +76,13 @@ public class DatabaseConnection {
         connection.close();
         return isEmpty;
     }
-
+/**
+ * Deze functie voegt het bestand toe als deze nog niet aanwezig is op de database.
+ * @param bestandID
+ * @param bestandnaam
+ * @param type
+ * @return true/false
+ */
     public boolean addBestand(int bestandID, String bestandnaam, String type) {
         try {
             Connection connection = connect();
@@ -74,7 +98,14 @@ public class DatabaseConnection {
         }
         return true;
     }
-
+/**
+ * Voegt een sequentie toe aan de database, bij elke sequentie wordt de sequentieID, type, sequentie en bestandID meegegeven. Als dit is gelukt, returnt de functie true, en anders false.
+ * @param sequentieID
+ * @param type
+ * @param sequentie
+ * @param bestandID
+ * @return true/false
+ */
     public boolean addSequentie(int sequentieID, String type, String sequentie, int bestandID) {
         try {
             Connection connection = connect();
@@ -93,7 +124,13 @@ public class DatabaseConnection {
         }
         return true;
     }
-
+/**
+ * Voegt een ORF toe aan de database, bij elke ORF wordt de startpositie, eindpositie en bestandID meegegeven. Als dit is gelukt, returnt de functie true, en anders false.
+ * @param startpositie
+ * @param eindpositie
+ * @param bestandID
+ * @return true/falsa
+ */
     public boolean addORF(int startpositie, int eindpositie, int bestandID) {
         try {
             Connection connection = connect();
@@ -109,7 +146,11 @@ public class DatabaseConnection {
         }
         return true;
     }
-
+/**
+ * Met deze functie wordt er een connectie gemaakt met een database op basis van de gevraagde gegevens uit getConnection.
+ * @return connection
+ * @throws SQLException 
+ */
     private Connection connect() throws SQLException {
         Connection connection = DriverManager.getConnection(String.format("jdbc:oracle:thin:@%s:%s:XE", host, Integer.toString(port)), username, password);
         if (connection == null) {
